@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pokedex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="chat-widget">
+      <button class="closed" v-if="closed" v-on:click="toggle">
+        <i class="far fa-comment-dots"></i>
+      </button>
+      <div class="chat-box" v-else>
+        <div class="top-bar">
+          <button class="close-btn" v-on:click="toggle">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="messages-box">
+          <div
+            v-for="message in messages"
+            class="mensaje"
+            :class="message.author"
+          >
+            {{message.content}}
+          </div>
+        </div>
+        <div class="user-input">
+          <label for="mensaje"></label>
+          <textarea
+            type="text"
+            id="mensaje"
+            name="mensaje"
+            v-model="newMessage"
+          ></textarea>
+          <button v-on:click="sendMessage">
+            <i class="far fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
