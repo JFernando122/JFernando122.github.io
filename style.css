@@ -58,13 +58,13 @@
   display: flex;
 }
 
-.user-input textarea {
+#mensaje {
   flex-grow: 1;
   resize: none;
   padding: 5px 0 0 5px;
 }
 
-.user-input button {
+#submit-btn{
   padding: 15px 20px;
 }
 
